@@ -1,0 +1,6 @@
+<div id="map"></div>
+<script>
+L.mapbox.accessToken = "<%= ENV['mapbox_access_token'] %>";
+var map = L.mapbox.map("map", "<%= ENV['mapbox_map_id'] %>")
+  .setView([40.7496821, -73.9704147], 14);
+</script>
