@@ -1,6 +1,7 @@
 class NypdCollisionData
   def initialize
-    @collisions = HTTParty.get("http://data.cityofnewyork.us/resource/h9gi-nx95.json?$select=unique_key,date,zip_code,latitude,longitude,on_street_name,off_street_name,number_of_pedestrians_injured,number_of_pedestrians_killed,number_of_cyclist_injured,number_of_cyclist_killed&$where=latitude%20IS%20NOT%20NULL%20AND%20longitude%20IS%20NOT%20NULL%20AND%20(number_of_pedestrians_injured%3E0%20OR%20number_of_pedestrians_killed%3E0%20OR%20number_of_cyclist_injured%3E0%20OR%20number_of_cyclist_killed%3E0)&$order=date%20DESC")
+    data_collector = DataCollector.new
+    @collisions = data_collector.get_collisions
   end
 
   def get_incidents
@@ -11,6 +12,8 @@ class NypdCollisionData
       end
     end
   end
+
+  private
 
   def attributes(incident)
     {
