@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  key: MyString
+  date: MyString
+  latitude: MyString
+  longitude: MyString
+  pedestrian_casualties: false
+  cyclist_casualties: false
+
+two:
+  key: MyString
+  date: MyString
+  latitude: MyString
+  longitude: MyString
+  pedestrian_casualties: false
+  cyclist_casualties: false

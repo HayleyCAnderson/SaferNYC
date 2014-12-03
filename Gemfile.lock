@@ -41,6 +41,9 @@ GEM
     figaro (1.0.0)
       thor (~> 0.14)
     hike (1.2.3)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     jbuilder (2.2.4)
       activesupport (>= 3.0.0, < 5)
@@ -55,6 +58,7 @@ GEM
     mime-types (2.4.3)
     minitest (5.4.2)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     pg (0.17.1)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -117,6 +121,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   figaro
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   mapbox-rails
