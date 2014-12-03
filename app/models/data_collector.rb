@@ -8,11 +8,11 @@ class DataCollector
     )
   end
 
-  def get_collisions
+  def collisions
     @client.get(
       ENV["soda_dataset_identifier"],
       "$select" => incident_data_points.join(", "),
-      "$where" => "#{has_lat_lng} AND (#{pedestrian_involved} OR #{cyclist_involved})",
+      "$where" => incident_conditions,
       "$order" => "date DESC"
     )
   end
@@ -21,22 +21,43 @@ class DataCollector
 
   def incident_data_points
     [
-      :unique_key,
+      :borough,
       :date,
-      :zip_code,
       :latitude,
       :longitude,
-      :on_street_name,
-      :off_street_name,
+      :number_of_cyclist_injured,
+      :number_of_cyclist_killed,
       :number_of_pedestrians_injured,
       :number_of_pedestrians_killed,
-      :number_of_cyclist_injured,
-      :number_of_cyclist_killed
+      :off_street_name,
+      :on_street_name,
+      :unique_key,
+      :zip_code
     ]
   end
 
-  def has_lat_lng
+  def incident_conditions
+    "#{is_new} AND #{has_latitude_and_longitude} AND #{is_relevant}"
+  end
+
+  def is_new
+    "date>'#{date_of_last_saved_incident}'"
+  end
+
+  def has_latitude_and_longitude
     "latitude IS NOT NULL AND longitude IS NOT NULL"
+  end
+
+  def is_relevant
+    "(#{pedestrian_involved} OR #{cyclist_involved})"
+  end
+
+  def date_of_last_saved_incident
+    if Incident.all.size > 0
+      Incident.order(date: :desc).first.date
+    else
+      0
+    end
   end
 
   def pedestrian_involved

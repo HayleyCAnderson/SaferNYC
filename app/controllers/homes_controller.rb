@@ -1,7 +1,6 @@
 class HomesController < ApplicationController
   def show
-    data = NypdCollisionData.new
-    data.get_incidents
-    @collisions = Incident.all
+    home = Home.new
+    @collisions = home.data
   end
 end

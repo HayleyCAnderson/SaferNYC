@@ -17,12 +17,14 @@ ActiveRecord::Schema.define(version: 20141202200232) do
   enable_extension "plpgsql"
 
   create_table "incidents", force: true do |t|
-    t.string   "key",                   null: false
-    t.string   "date",                  null: false
-    t.string   "latitude",              null: false
-    t.string   "longitude",             null: false
-    t.boolean  "pedestrian_casualties", null: false
-    t.boolean  "cyclist_casualties",    null: false
+    t.string   "key",                 null: false
+    t.string   "date",                null: false
+    t.string   "latitude",            null: false
+    t.string   "longitude",           null: false
+    t.integer  "pedestrians_injured", null: false
+    t.integer  "pedestrians_killed",  null: false
+    t.integer  "cyclists_injured",    null: false
+    t.integer  "cyclists_killed",     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
