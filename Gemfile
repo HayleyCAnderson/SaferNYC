@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.6'
 
 gem 'coffee-rails', '~> 4.0.0'
-gem "figaro"
+gem 'figaro'
+gem 'geocoder'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'mapbox-rails'

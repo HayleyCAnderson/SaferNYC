@@ -37,15 +37,15 @@ class DataCollector
   end
 
   def incident_conditions
-    "#{is_new} AND #{has_latitude_and_longitude} AND #{is_relevant}"
+    "#{is_new} AND #{has_location_data} AND #{is_relevant}"
   end
 
   def is_new
     "date>'#{date_of_last_saved_incident}'"
   end
 
-  def has_latitude_and_longitude
-    "latitude IS NOT NULL AND longitude IS NOT NULL"
+  def has_location_data
+    "(#{has_latitude_and_longitude} OR #{has_cross_streets})"
   end
 
   def is_relevant
@@ -58,6 +58,14 @@ class DataCollector
     else
       0
     end
+  end
+
+  def has_latitude_and_longitude
+    "(latitude IS NOT NULL AND longitude IS NOT NULL)"
+  end
+
+  def has_cross_streets
+    "(on_street_name IS NOT NULL AND off_street_name IS NOT NULL)"
   end
 
   def pedestrian_involved

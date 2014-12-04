@@ -17,14 +17,18 @@ ActiveRecord::Schema.define(version: 20141202200232) do
   enable_extension "plpgsql"
 
   create_table "incidents", force: true do |t|
+    t.string   "borough"
     t.string   "key",                 null: false
     t.string   "date",                null: false
-    t.string   "latitude",            null: false
-    t.string   "longitude",           null: false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "cross_street_name"
+    t.string   "on_street_name"
     t.integer  "pedestrians_injured", null: false
     t.integer  "pedestrians_killed",  null: false
     t.integer  "cyclists_injured",    null: false
     t.integer  "cyclists_killed",     null: false
+    t.string   "zip_code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
