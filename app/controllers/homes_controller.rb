@@ -1,6 +1,7 @@
 class HomesController < ApplicationController
   def show
     Home.new
-    @marker_data_set = Incident.to_geojson.to_json
+    marker_builder = GeojsonBuilder.new(Incident.all)
+    @marker_data_set = marker_builder.to_json
   end
 end
