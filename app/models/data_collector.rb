@@ -45,7 +45,7 @@ class DataCollector
   end
 
   def has_location_data
-    "(#{has_latitude_and_longitude} OR #{has_cross_streets})"
+    "(#{has_latitude_and_longitude} OR #{has_address_information})"
   end
 
   def is_relevant
@@ -64,8 +64,8 @@ class DataCollector
     "(latitude IS NOT NULL AND longitude IS NOT NULL)"
   end
 
-  def has_cross_streets
-    "(on_street_name IS NOT NULL AND off_street_name IS NOT NULL)"
+  def has_address_information
+    "(#{has_cross_streets} AND zip_code IS NOT NULL)"
   end
 
   def pedestrian_involved
@@ -74,5 +74,9 @@ class DataCollector
 
   def cyclist_involved
     "number_of_cyclist_injured>0 OR number_of_cyclist_killed>0"
+  end
+
+  def has_cross_streets
+    "(on_street_name IS NOT NULL AND off_street_name IS NOT NULL)"
   end
 end
