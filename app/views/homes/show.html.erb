@@ -3,21 +3,6 @@
 <script>
   L.mapbox.accessToken = "<%= ENV['mapbox_access_token'] %>";
   var map = L.mapbox.map("map", "<%= ENV['mapbox_map_id'] %>")
-    .setView([40.7496821, -73.9704147], 14);
-
-  var markers = function() {
-    <% @collisions.each do |collision| %>
-      var latitude = <%= collision.latitude %>;
-      var longitude = <%= collision.longitude %>;
-      var marker = L.marker(new L.LatLng(latitude, longitude), {
-        icon: L.mapbox.marker.icon({
-          'marker-size': 'small',
-          'marker-color': '0044FF'
-        }),
-      });
-      map.addLayer(marker);
-    <% end %>
-  };
-
-  markers();
+    .setView([40.7496821, -73.9704147], 14)
+    .featureLayer.setGeoJSON(<%= @marker_data_set.html_safe %>);
 </script>
