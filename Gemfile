@@ -15,6 +15,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'soda-ruby', require: 'soda'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
+gem 'whenever', require: false
 
 group :development do
   gem 'pry'
