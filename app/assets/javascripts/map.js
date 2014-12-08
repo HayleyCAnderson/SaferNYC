@@ -35,9 +35,9 @@ $(function() {
 
   function addLayer(layer, name, default_class, callback) {
     var link = document.createElement("a");
-      link.href = "#";
-      link.className = default_class;
-      link.innerHTML = name;
+    link.href = "#";
+    link.className = default_class;
+    link.innerHTML = name;
 
     link.onclick = function(e) {
       e.preventDefault();

@@ -1,6 +1,6 @@
 body {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-  font-weight: normal;
+  font-weight: 300;
   margin: 0;
   padding: 0;
 }
@@ -10,7 +10,7 @@ body {
   border-radius: 48px;
   height: 24px;
   margin: 0;
-  padding: 12px 6px;
+  padding: 10px 5px;
   position: absolute;
   right: 10px;
   top: 10px;
@@ -19,16 +19,17 @@ body {
   z-index: 1;
 
   a {
-  border-radius: 24px;
-  color: lighten(#404040,20%);
-  display: inline;
-  font-size: .75em;
-  font-weight: 400;
-  height: 90%;
-  margin: 0;
-  padding: 10px;
-  position: relative;
-  text-decoration: none;
+    border-radius: 24px;
+    color: lighten(#404040,20%);
+    display: inline;
+    font-size: .75em;
+    font-weight: 400;
+    height: 93%;
+    margin: 0;
+    padding: 10px;
+    position: relative;
+    text-decoration: none;
+    top: 1px;
   }
 
   a.active {
