@@ -9,7 +9,7 @@ $(function() {
 
   var heatmap = L.mapbox.featureLayer(markerDataSet);
   var heat = L.heatLayer([], {
-    radius: 20,
+    radius: 16,
     blur: 20,
     maxZoom: 14
   });
@@ -42,13 +42,11 @@ $(function() {
     link.onclick = function(e) {
       e.preventDefault();
 
-      callback();
-
-      $.each(menu, function(i, layer) {
-        this.className = "";
-      });
+      $("#menu > a").removeClass();
 
       link.className = "active";
+
+      callback();
     };
 
     menu.appendChild(link);

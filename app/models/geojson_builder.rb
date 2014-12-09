@@ -19,12 +19,16 @@ class GeojsonBuilder
         coordinates: [incident.longitude, incident.latitude]
       },
       properties: {
-        "title" => incident.date,
+        "title" => "<div class='popup'>#{date(incident)}</div>",
         "marker-size" => "small",
         "marker-color" => marker_color(incident),
         "marker-symbol" => marker_symbol(incident)
       }
     }
+  end
+
+  def date(incident)
+    "<p>Date: #{Date.strptime(incident.date).strftime("%a. %b %d, %Y")}</p>"
   end
 
   def marker_color(incident)

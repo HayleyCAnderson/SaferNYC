@@ -34,9 +34,11 @@ body {
 
   a.active {
     background: #fff;
+    border-bottom: 2px solid #BFB7B0;
+    border-right: 2px solid #BFB7B0;
   }
 }
 
 .menu:hover {
-  background: lighten(#BFB7B0,17%);
+  background: lighten(#BFB7B0,15%);
 }
