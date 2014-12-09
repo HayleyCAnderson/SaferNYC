@@ -22,6 +22,7 @@ class DataCollector
   def incident_data_points
     [
       :borough,
+      :contributing_factor_vehicle_1,
       :date,
       :latitude,
       :longitude,
@@ -32,6 +33,7 @@ class DataCollector
       :off_street_name,
       :on_street_name,
       :unique_key,
+      :vehicle_type_code1,
       :zip_code
     ]
   end
