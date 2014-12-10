@@ -6,6 +6,7 @@ class IncidentParser
   def parse
     {
       borough: @raw_incident["borough"],
+      cause: @raw_incident["contributing_factor_vehicle_1"],
       cyclists_injured: @raw_incident["number_of_cyclist_injured"].to_i,
       cyclists_killed: @raw_incident["number_of_cyclist_killed"].to_i,
       date: @raw_incident["date"],
@@ -16,6 +17,7 @@ class IncidentParser
       on_street_name: @raw_incident["on_street_name"],
       pedestrians_injured: @raw_incident["number_of_pedestrians_injured"].to_i,
       pedestrians_killed: @raw_incident["number_of_pedestrians_killed"].to_i,
+      vehicle_type: @raw_incident["vehicle_type_code1"],
       zip_code: @raw_incident["zip_code"]
     }
   end
