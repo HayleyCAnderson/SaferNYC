@@ -19,7 +19,7 @@ class GeojsonBuilder
         coordinates: [incident.longitude, incident.latitude]
       },
       properties: {
-        "title" => "<div class='popup'>#{date(incident)}</div>",
+        "title" => popup_content(incident),
         "marker-size" => "small",
         "marker-color" => marker_color(incident),
         "marker-symbol" => marker_symbol(incident)
@@ -27,8 +27,20 @@ class GeojsonBuilder
     }
   end
 
+  def popup_content(incident)
+    "<div class='popup'>#{date(incident)}#{cause(incident)}#{vehicle(incident)}</div>"
+  end
+
   def date(incident)
-    "<p>Date: #{Date.strptime(incident.date).strftime("%a. %b %d, %Y")}</p>"
+    "<p><span>Date:</span> #{Date.strptime(incident.date).strftime("%a, %b. %d, %Y")}</p>"
+  end
+
+  def cause(incident)
+    "<p><span>Cause:</span> #{(incident.cause || "None listed").capitalize}</p>"
+  end
+
+  def vehicle(incident)
+    "<p><span>Vehicle:</span> #{(incident.vehicle_type || "None listed").capitalize}</p>"
   end
 
   def marker_color(incident)
