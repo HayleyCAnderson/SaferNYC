@@ -3,7 +3,7 @@ function mainMarkersLegend() {
   dataCount = "<h3>Total shown: " + markerDataSet.length + "</h3>",
   dateInformation = [];
   dateInformation.push("<h3>These collisions occurred:</h3><p>");
-  dateInformation.push(dates.data("one-month-before"));
+  dateInformation.push(dates.data("marker-start"));
   dateInformation.push(" -</p><p>" + dates.data("most-recent"));
   return dateInformation.join("") + dataCount;
 };
@@ -13,7 +13,7 @@ function mainHeatmapLegend() {
   dataCount = "<h3>Total shown: " + heatmapDataSet.length + "</h3>",
   dateInformation = [];
   dateInformation.push("<h3>These collisions occurred:</h3><p>");
-  dateInformation.push(dates.data("months-before"));
+  dateInformation.push(dates.data("heatmap-start"));
   dateInformation.push(" -</p><p>" + dates.data("most-recent"));
   return dateInformation.join("") + dataCount;
 };

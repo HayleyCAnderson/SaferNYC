@@ -1,32 +1,27 @@
 class HomesController < ApplicationController
   def show
-    marker_builder = GeojsonBuilder.new(incidents_in_past_months(1))
-    @marker_data_set = marker_builder.to_json
-    heatmap_builder = GeojsonBuilder.new(incidents_in_past_months(6))
-    @heatmap_data_set = heatmap_builder.to_json
+    marker_incidents = Incident.good_data_in_time_range(1)
+    heatmap_incidents = Incident.good_data_in_time_range(6)
+    @marker_data_set = geojson(marker_incidents)
+    @heatmap_data_set = geojson(heatmap_incidents)
+    get_date_data(marker_incidents, heatmap_incidents)
   end
 
   private
 
-  def incidents_in_past_months(number_of_months)
-    Incident.where(date: between_dates(number_of_months)).where.not(latitude: 0.0)
+  def geojson(incidents)
+    GeojsonBuilder.new(incidents).to_json
   end
 
-  def between_dates(number_of_months)
-    @most_recent_date = Date.strptime(Incident.order(date: :desc).first.date)
-    set_start_month(number_of_months)
-    ("#{start_month(number_of_months)}T00:00:00".."#{@most_recent_date}T00:00:00")
+  def get_date_data(marker_incidents, heatmap_incidents)
+    @date_data = {
+      most_recent: pretty_date(marker_incidents.order(date: :desc).first.date),
+      marker_start: pretty_date(marker_incidents.order(date: :desc).last.date),
+      heatmap_start: pretty_date(heatmap_incidents.order(date: :desc).last.date)
+    }
   end
 
-  def set_start_month(number_of_months)
-    if number_of_months == 1
-      @one_month_before = start_month(number_of_months)
-    else
-      @months_before = start_month(number_of_months)
-    end
-  end
-
-  def start_month(number_of_months)
-    @most_recent_date.prev_month(number_of_months)
+  def pretty_date(raw_date)
+    Date.strptime(raw_date).strftime("%a, %b. %d, %Y")
   end
 end
