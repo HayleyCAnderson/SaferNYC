@@ -7,10 +7,8 @@ class Incident < ActiveRecord::Base
   end
 
   def self.good_data_in_time_range(number_of_months)
-    self.where(date: between_dates(number_of_months)).where.not(latitude: 0.0)
+    where(date: between_dates(number_of_months)).where.not(latitude: 0.0)
   end
-
-  private
 
   def self.between_dates(number_of_months)
     most_recent_date = Date.strptime(Incident.order(date: :desc).first.date)
