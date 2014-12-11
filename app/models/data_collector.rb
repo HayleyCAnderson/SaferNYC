@@ -58,7 +58,7 @@ class DataCollector
     if Incident.all.size > 0
       Incident.order(date: :desc).first.date
     else
-      "2014-01-01T00:00:00"
+      "2014-06-01T00:00:00"
     end
   end
 

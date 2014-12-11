@@ -7,7 +7,7 @@ $(function() {
 
   var markers = L.mapbox.featureLayer(markerDataSet);
 
-  var heatmap = L.mapbox.featureLayer(markerDataSet);
+  var heatmap = L.mapbox.featureLayer(heatmapDataSet);
   var heat = L.heatLayer([], {
     radius: 16,
     blur: 20,
@@ -19,23 +19,26 @@ $(function() {
     heatmap.eachLayer(function(l) {
       heat.addLatLng(l.getLatLng());
     });
+    map.legendControl.addLegend(mainHeatmapLegend());
   };
 
   function drawMarkers() {
     markers.addTo(map);
+    map.legendControl.addLegend(mainMarkersLegend());
     map.legendControl.addLegend(markersLegend());
   }
 
-  map.legendControl.addLegend(mainLegend());
   drawMarkers();
 
   addLayer(markers, "Data View", "active", function() {
+    map.legendControl.removeLegend(mainHeatmapLegend());
     map.removeLayer(heat);
     drawMarkers();
   });
 
   addLayer(heatmap, "Heatmap", "", function() {
     map.legendControl.removeLegend(markersLegend());
+    map.legendControl.removeLegend(mainMarkersLegend());
     map.removeLayer(markers);
     drawHeatMap();
   });
