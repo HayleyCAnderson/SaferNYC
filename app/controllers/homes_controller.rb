@@ -27,6 +27,6 @@ class HomesController < ApplicationController
   end
 
   def start_month(number_of_months)
-    @most_recent_date.prev_month(n = number_of_months)
+    @most_recent_date.prev_month(number_of_months)
   end
 end
