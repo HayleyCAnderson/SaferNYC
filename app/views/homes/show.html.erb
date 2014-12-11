@@ -1,5 +1,6 @@
 <nav id="menu" class="menu"></nav>
 <div id="map"></div>
+<div id="dates" data-most-recent="<%= @most_recent_date.strftime("%a, %b. %d, %Y") %>" data-one-month-before="<%= @one_month_before.strftime("%a, %b. %d, %Y") %>"></div>
 
 <script>
   MAPBOX_ACCESS_TOKEN = "<%= ENV['mapbox_access_token'] %>";

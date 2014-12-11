@@ -15,5 +15,55 @@
   p {
     font-size: .85em;
     margin: 0;
+
+    span {
+      font-weight: 400;
+    }
+  }
+}
+
+.map-legend {
+  border: 1px solid darken(#BFB7B0, 20%);
+  border-radius: 4px;
+  font-size: 1em;
+
+  h3 {
+    font-size: 90%;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  p {
+    font-size: 90%;
+    font-weight: 300;
+    margin: 0;
+  }
+
+  ul {
+    font-size: 85%;
+    font-weight: 300;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 5px 0;
+    }
+  }
+
+  .swatch {
+    float: left;
+    height: 20px;
+    margin-right: 10px;
+    padding: 4px;
+    width: 20px;
+
+    .symbol {
+      background: #fff;
+      border-radius: 12px;
+      height: 12px;
+      position: absolute;
+      width: 12px;
+    }
   }
 }

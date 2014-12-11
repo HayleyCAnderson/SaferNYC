@@ -21,17 +21,24 @@ $(function() {
     });
   };
 
+  function drawMarkers() {
+    markers.addTo(map);
+    map.legendControl.addLegend(markersLegend());
+  }
+
+  map.legendControl.addLegend(mainLegend());
+  drawMarkers();
+
   addLayer(markers, "Data View", "active", function() {
     map.removeLayer(heat);
-    markers.addTo(map);
+    drawMarkers();
   });
 
   addLayer(heatmap, "Heatmap", "", function() {
+    map.legendControl.removeLegend(markersLegend());
     map.removeLayer(markers);
     drawHeatMap();
   });
-
-  markers.addTo(map);
 
   function addLayer(layer, name, default_class, callback) {
     var link = document.createElement("a");
