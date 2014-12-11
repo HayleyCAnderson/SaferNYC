@@ -58,7 +58,8 @@ class DataCollector
     if Incident.all.size > 0
       Incident.order(date: :desc).first.date
     else
-      "2014-01-01T00:00:00"
+      current_date = Date.strptime(Time.now.to_s)
+      current_date.prev_month(6).strftime("%FT%T")
     end
   end
 

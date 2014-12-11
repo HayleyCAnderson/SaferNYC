@@ -1,9 +1,10 @@
 <nav id="menu" class="menu"></nav>
 <div id="map"></div>
-<div id="dates" data-most-recent="<%= @most_recent_date.strftime("%a, %b. %d, %Y") %>" data-one-month-before="<%= @one_month_before.strftime("%a, %b. %d, %Y") %>"></div>
+<div id="dates" data-most-recent="<%= @date_data[:most_recent] %>" data-marker-start="<%= @date_data[:marker_start] %>" data-heatmap-start="<%= @date_data[:heatmap_start] %>"></div>
 
 <script>
   MAPBOX_ACCESS_TOKEN = "<%= ENV['mapbox_access_token'] %>";
   MAPBOX_MAP_ID = "<%= ENV['mapbox_map_id'] %>";
   markerDataSet = <%= @marker_data_set.html_safe %>;
+  heatmapDataSet = <%= @heatmap_data_set.html_safe %>;
 </script>
