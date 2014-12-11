@@ -13,7 +13,7 @@ class DataCollector
       ENV["soda_dataset_identifier"],
       "$select" => incident_data_points.join(", "),
       "$where" => incident_conditions,
-      "$order" => "date DESC"
+      "$order" => "date ASC"
     )
   end
 
@@ -58,7 +58,7 @@ class DataCollector
     if Incident.all.size > 0
       Incident.order(date: :desc).first.date
     else
-      0
+      "2014-01-01T00:00:00"
     end
   end
 
