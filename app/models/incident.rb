@@ -13,6 +13,6 @@ class Incident < ActiveRecord::Base
   def self.between_dates(number_of_months)
     most_recent_date = Date.strptime(Incident.order(date: :desc).first.date)
     start_date = most_recent_date.prev_month(number_of_months)
-    ("#{start_date}T00:00:00".."#{most_recent_date}T00:00:00")
+    start_date.strftime("%FT%T")..most_recent_date.strftime("%FT%T")
   end
 end
