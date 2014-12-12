@@ -19,26 +19,26 @@ $(function() {
     heatmap.eachLayer(function(l) {
       heat.addLatLng(l.getLatLng());
     });
-    map.legendControl.addLegend(mainHeatmapLegend());
+    map.legendControl.addLegend(mainLegend(heatmapDataSet, "heatmap-start"));
   };
 
   function drawMarkers() {
     markers.addTo(map);
-    map.legendControl.addLegend(mainMarkersLegend());
+    map.legendControl.addLegend(mainLegend(markerDataSet, "marker-start"));
     map.legendControl.addLegend(markersLegend());
   }
 
   drawMarkers();
 
   addLayer(markers, "Data View", "active", function() {
-    map.legendControl.removeLegend(mainHeatmapLegend());
+    map.legendControl.removeLegend(mainLegend(heatmapDataSet, "heatmap-start"));
     map.removeLayer(heat);
     drawMarkers();
   });
 
   addLayer(heatmap, "Heatmap", "", function() {
     map.legendControl.removeLegend(markersLegend());
-    map.legendControl.removeLegend(mainMarkersLegend());
+    map.legendControl.removeLegend(mainLegend(markerDataSet, "marker-start"));
     map.removeLayer(markers);
     drawHeatMap();
   });

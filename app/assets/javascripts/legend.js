@@ -1,19 +1,9 @@
-function mainMarkersLegend() {
+function mainLegend(dataSet, startDate) {
   var dates = $("#dates"),
-  dataCount = "<h3>Total shown: " + markerDataSet.length + "</h3>",
+  dataCount = "<h3>Total shown: " + dataSet.length + "</h3>",
   dateInformation = [];
   dateInformation.push("<h3>These collisions occurred:</h3><p>");
-  dateInformation.push(dates.data("marker-start"));
-  dateInformation.push(" -</p><p>" + dates.data("most-recent"));
-  return dateInformation.join("") + dataCount;
-};
-
-function mainHeatmapLegend() {
-  var dates = $("#dates"),
-  dataCount = "<h3>Total shown: " + heatmapDataSet.length + "</h3>",
-  dateInformation = [];
-  dateInformation.push("<h3>These collisions occurred:</h3><p>");
-  dateInformation.push(dates.data("heatmap-start"));
+  dateInformation.push(dates.data(startDate));
   dateInformation.push(" -</p><p>" + dates.data("most-recent"));
   return dateInformation.join("") + dataCount;
 };
