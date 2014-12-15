@@ -12,17 +12,29 @@ function markersLegend() {
   var labels = [],
   options = [
     "Pedestrian Injury",
-    "Cyclist Injury",
-    "Pedestrian/Cyclist Injury",
     "Pedestrian Fatality",
-    "Cyclist Fatality",
-    "Pedestrian/Cyclist Fatality"
+    "Cyclist Injury",
+    "Cyclist Fatality"
   ],
   colors = {};
   colors["Pedestrian"] = "#AA2C3F";
   colors["Cyclist"] = "#293659";
-  colors["Pedestrian/Cyclist"] = "#44004C";
-  var victimType, casualtyType;
+  colors["Pedestrian/Cyclist"] = "#5A004C";
+  var victimType,
+  casualtyType,
+  hasPedestrianAndCyclistCasualty = false;
+
+  $(markerDataSet).each(function(index, object) {
+    if (object["properties"]["marker-color"] == "#5A004C") {
+      hasPedestrianAndCyclistCasualty = true;
+      return false;
+    };
+  });
+
+  if (hasPedestrianAndCyclistCasualty == true) {
+    options.push("Pedestrian/Cyclist Injury");
+    options.push("Pedestrian/Cyclist Fatality");
+  };
 
   $(options).each(function (index, content) {
     var label = [],
