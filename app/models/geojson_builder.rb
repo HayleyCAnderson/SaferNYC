@@ -49,7 +49,7 @@ class GeojsonBuilder
     elsif cyclist_casualties?(incident) && !pedestrian_casualties?(incident)
       "#293659"
     else
-      "#44004C"
+      "#5A004C"
     end
   end
 
