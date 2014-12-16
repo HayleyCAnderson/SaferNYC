@@ -1,5 +1,17 @@
+<h1 aria-hidden="true">SaferNYC: A Map of Collisions Involving Pedestrians and Cyclists in New York City</h1>
+
 <nav id="menu" class="menu"></nav>
+
+<nav id="about-nav" class="about-nav">
+  <a href="#" id="about-project-nav">About SaferNYC</a>
+  <a href="#" id="about-data-nav">About the Data</a>
+</nav>
+
+<div id="about-project" class="about"><%= render "about_project" %></div>
+<div id="about-data" class="about"><%= render "about_data" %></div>
+
 <div id="map"></div>
+
 <div id="dates" data-most-recent="<%= @date_data[:most_recent] %>" data-marker-start="<%= @date_data[:marker_start] %>" data-heatmap-start="<%= @date_data[:heatmap_start] %>"></div>
 
 <script>

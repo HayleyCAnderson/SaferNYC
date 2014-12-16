@@ -6,7 +6,7 @@
 }
 
 .popup {
-  font-weight: 300;
+  font-weight: $narrow;
   margin: -11px;
   margin-bottom: -18px;
   padding: 5px;
@@ -17,31 +17,31 @@
     margin: 0;
 
     span {
-      font-weight: 400;
+      font-weight: $normal;
     }
   }
 }
 
 .map-legend {
-  border: 1px solid darken(#BFB7B0, 20%);
+  border: 1px solid darken($grey, 20%);
   border-radius: 4px;
   font-size: 1em;
 
   h3 {
     font-size: 90%;
-    font-weight: 400;
+    font-weight: $normal;
     margin: 0;
   }
 
   p {
     font-size: 90%;
-    font-weight: 300;
+    font-weight: $narrow;
     margin: 0;
   }
 
   ul {
     font-size: 85%;
-    font-weight: 300;
+    font-weight: $narrow;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -59,7 +59,7 @@
     width: 20px;
 
     .symbol {
-      background: #fff;
+      background: $white;
       border-radius: 12px;
       height: 12px;
       position: absolute;

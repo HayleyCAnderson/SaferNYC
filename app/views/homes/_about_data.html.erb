@@ -1,0 +1,49 @@
+<h2>About the Data</h2>
+
+<p>The data on this map is gathered from the <a href=
+  "https://nycopendata.socrata.com/NYC-BigApps/NYPD-Motor-
+  Vehicle-Collisions/h9gi-nx95?" title="NYPD Motor Vehicle
+  Collisions" target="_blank">NYPD Motor Vehicle Collisions
+</a> dataset on the <a href="https://nycopendata.socrata.
+com" title="NYC Open Data" target="_blank">NYC Open Data
+</a> website. It is gathered through the <a href=
+"http://dev.socrata.com" title="Socrate Open Data API"
+target="_blank">Socrata Open Data API</a> and associated
+gem.</p>
+
+<p>Approximately one third of collisions involving
+  pedestrians and cyclists already have latitude and
+  longitude included in the dataset, while the other two
+  thirds are geocoded through the <a href=
+  "https://developers.google.
+  com/maps/documentation/geocoding/?csw=1" title="Google
+  Geocoding API" target="_blank">Google Geocoding API</a>
+  by way of the <a href="http://www.rubygeocoder.com" title
+  ="Ruby Geocoder Gem" target="_blank">Geocoder</a> gem. A
+  small number of incidents are missing cross streets or
+  zip codes, or otherwise cannot be geocoded. The
+  locations in the dataset typically show the nearest
+  intersection rather than exact location.</p>
+
+<p>While cause and vehicle type are shown in the map when
+  available, it is unclear how these designations are
+  determined or how accurate they may be. Additional
+  contributing factors and vehicle types are not shown on
+  this map due to lack of data and the focus on collisions
+  involving pedestrians and cyclists.</p>
+
+<p>The dataset on NYC Open Data is typically updated each
+  weekday afternoon and lags two to five days behind.
+  SaferNYC checks for new data each night and pulls it
+  into the application when available. SaferNYC does not
+  track historical data due to geocoding API limits.</p>
+
+<p><span class="emphasized">It is important to note that
+  this application relies on the presumed accuracy of data
+  reported on the NYC Open Data website. However, there
+  have been reports of incidents not simply being
+  documented inaccurately, but <a href="http://www.wnyc.
+  org/story/nypdtrafficdeaths/" title="WNYC NYPD Traffic
+  Deaths" target="_blank">missing entirely</a>. This
+  should be taken into account when viewing the data shown
+  on this map.</span></p>
