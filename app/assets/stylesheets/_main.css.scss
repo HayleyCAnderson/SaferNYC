@@ -4,6 +4,12 @@ body {
   padding: 0;
 }
 
+h1 {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
 .menu {
   background: lighten($grey,20%);
   border-radius: 4px;
