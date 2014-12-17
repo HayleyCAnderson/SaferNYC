@@ -15,9 +15,6 @@ $(function() {
 
   function drawHeatMap() {
     heat.addTo(map);
-    heatmap.eachLayer(function(l) {
-      heat.addLatLng(l.getLatLng());
-    });
     map.legendControl.addLegend(mainLegend(heatmapDataSet, "heatmap-start"));
   };
 
@@ -27,11 +24,18 @@ $(function() {
     map.legendControl.addLegend(markersLegend());
   }
 
+  function buildHeatMap() {
+    heatmap.eachLayer(function(l) {
+      heat.addLatLng(l.getLatLng());
+    });
+  }
+
   function moveInfoControl() {
     $(".mapbox-control-info").insertBefore(".map-legends");
   };
 
   drawMarkers();
+  buildHeatMap();
   moveInfoControl();
 
   addLayer(markers, "Data View", "active", function() {
