@@ -2,16 +2,13 @@ class HomesController < ApplicationController
   def show
     marker_incidents = Incident.good_data_in_time_range(1)
     heatmap_incidents = Incident.good_data_in_time_range(6)
-    @marker_data_set = geojson(marker_incidents)
-    @heatmap_data_set = geojson(heatmap_incidents)
+    @mode_data_set = GeojsonBuilder.new(marker_incidents).to_mode_json
+    @cause_data_set = GeojsonBuilder.new(marker_incidents).to_cause_json
+    @heatmap_data_set = GeojsonBuilder.new(heatmap_incidents).to_heatmap_json
     get_date_data(marker_incidents, heatmap_incidents)
   end
 
   private
-
-  def geojson(incidents)
-    GeojsonBuilder.new(incidents).to_json
-  end
 
   def get_date_data(marker_incidents, heatmap_incidents)
     @date_data = {

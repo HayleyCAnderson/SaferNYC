@@ -17,6 +17,7 @@
 <script>
   MAPBOX_ACCESS_TOKEN = "<%= ENV['mapbox_access_token'] %>";
   MAPBOX_MAP_ID = "<%= ENV['mapbox_map_id'] %>";
-  markerDataSet = <%= @marker_data_set.html_safe %>;
+  modeDataSet = <%= @mode_data_set.html_safe %>;
+  causeDataSet = <%= @cause_data_set.html_safe %>;
   heatmapDataSet = <%= @heatmap_data_set.html_safe %>;
 </script>
