@@ -59,10 +59,10 @@ function causeLegend() {
   options = {};
   options["Environmental/Medical/Mechanical"] = "#291D40";
   options["Road Conditions"] = "#84CBC5";
-  options["Unsafe Behavior"] = "#64D66A";
+  options["Unsafe Behavior"] = "#BBA5D3";
   options["Improper/Illegal Behavior"] = "#2F7F94";
   options["Unspecified/Unlisted"] = "#4B498C";
-  options["Other"] = "#752650";
+  options["Other"] = "#3232BA";
 
   $(Object.keys(options)).each(function (index, content) {
     var label = [];

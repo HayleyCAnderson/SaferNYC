@@ -1,4 +1,5 @@
-<h1>SaferNYC: A Map of Collisions Involving Pedestrians and Cyclists in New York City</h1>
+<h1>SaferNYC: A Map of Collisions Involving
+Pedestrians and Cyclists in New York City</h1>
 
 <nav id="menu" class="menu"></nav>
 
@@ -7,17 +8,26 @@
   <a href="#" id="about-data-nav">About the Data</a>
 </nav>
 
-<div id="about-project" class="about"><%= render "about_project" %></div>
-<div id="about-data" class="about"><%= render "about_data" %></div>
+<div id="about-project" class="about">
+  <%= render "about_project" %>
+</div>
+
+<div id="about-data" class="about">
+  <%= render "about_data" %>
+</div>
 
 <div id="map"></div>
 
-<div id="dates" data-most-recent="<%= @date_data[:most_recent] %>" data-marker-start="<%= @date_data[:marker_start] %>" data-heatmap-start="<%= @date_data[:heatmap_start] %>"></div>
+<div id="dates"
+data-most-recent="<%= @presenter.most_recent_date %>"
+data-marker-start="<%= @presenter.marker_start_date %>"
+data-heatmap-start="<%= @presenter.heatmap_start_date %>">
+</div>
 
 <script>
   MAPBOX_ACCESS_TOKEN = "<%= ENV['mapbox_access_token'] %>";
   MAPBOX_MAP_ID = "<%= ENV['mapbox_map_id'] %>";
-  modeDataSet = <%= @mode_data_set.html_safe %>;
-  causeDataSet = <%= @cause_data_set.html_safe %>;
-  heatmapDataSet = <%= @heatmap_data_set.html_safe %>;
+  modeDataSet = <%= @presenter.mode_data.html_safe %>;
+  causeDataSet = <%= @presenter.cause_data.html_safe %>;
+  heatmapDataSet = <%= @presenter.heatmap_data.html_safe %>;
 </script>
