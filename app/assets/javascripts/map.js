@@ -1,8 +1,7 @@
 $(function() {
   L.mapbox.accessToken = MAPBOX_ACCESS_TOKEN;
   var map = L.mapbox.map("map", MAPBOX_MAP_ID)
-  .setView([40.7496821, -73.9704147], 13)
-  .addControl(L.mapbox.shareControl());
+  .setView([40.7496821, -73.9704147], 13);
 
   var menu = document.getElementById("menu"),
   modeMarkers = L.mapbox.featureLayer(modeDataSet),
@@ -11,7 +10,7 @@ $(function() {
   heat = L.heatLayer([], {
     radius: 16,
     blur: 20,
-    maxZoom: 14
+    maxZoom: 16
   });
 
   function drawHeatMap() {
