@@ -11,6 +11,6 @@ class RoadConditionCause
   end
 
   def color
-    "#84CBC5"
+    "#F9C433"
   end
 end

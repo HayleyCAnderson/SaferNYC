@@ -17,6 +17,6 @@ class EnvironmentalMedicalMechanicalCause
   end
 
   def color
-    "#291D40"
+    "#BFD13C"
   end
 end

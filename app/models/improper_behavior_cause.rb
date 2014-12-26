@@ -14,6 +14,6 @@ class ImproperBehaviorCause
   end
 
   def color
-    "#2F7F94"
+    "#A32F43"
   end
 end

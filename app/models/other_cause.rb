@@ -4,6 +4,6 @@ class OtherCause
   end
 
   def color
-    "#3232BA"
+    "#5FCBCA"
   end
 end

@@ -55,10 +55,10 @@ class DataCollector
   end
 
   def date_of_last_saved_incident
-    if Incident.all.size > 0
+    if Incident.exists?
       Incident.order(date: :desc).first.date
     else
-      current_date = Date.strptime(Time.now.to_s)
+      current_date = Date.strptime(Time.current.to_s)
       current_date.prev_month(6).strftime("%FT%T")
     end
   end

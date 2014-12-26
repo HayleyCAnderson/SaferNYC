@@ -54,11 +54,10 @@ h1 {
   margin: 0;
   padding: 0;
   position: absolute;
-  transition: background .2s ease-in-out;
   z-index: 1;
 
   a {
-    background: rgba(60,58,56,.9);
+    background: $dark-transparent-grey;
     border-radius: 4px;
     color: rgba(255,255,255,.9);
     display: inline;
@@ -70,14 +69,15 @@ h1 {
     padding: 10px;
     position: relative;
     text-decoration: none;
+    transition: background .2s ease-in-out;
   }
 
   a:hover {
-    color: $water-blue;
+    background: lighten($dark-transparent-grey,5%);
   }
 
   .active {
-    color: $grass-green;
+    color: $pale-pink;
   }
 }
 
@@ -108,7 +108,7 @@ h1 {
   }
 
   a {
-    color: $pedestrian-pink;
+    color: $pink;
     font-weight: $normal;
     text-decoration: none;
   }

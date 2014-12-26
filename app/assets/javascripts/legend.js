@@ -57,12 +57,12 @@ function modeLegend() {
 function causeLegend() {
   var labels = [],
   options = {};
-  options["Environmental/Medical/Mechanical"] = "#291D40";
-  options["Road Conditions"] = "#84CBC5";
-  options["Unsafe Behavior"] = "#BBA5D3";
-  options["Improper/Illegal Behavior"] = "#2F7F94";
-  options["Unspecified/Unlisted"] = "#4B498C";
-  options["Other"] = "#3232BA";
+  options["Environmental/Medical/Mechanical"] = "#BFD13C";
+  options["Road Conditions"] = "#F9C433";
+  options["Unsafe Behavior"] = "#EAA1B9";
+  options["Improper/Illegal Behavior"] = "#A32F43";
+  options["Unspecified/Unlisted"] = "#333F3F";
+  options["Other"] = "#5FCBCA";
 
   $(Object.keys(options)).each(function (index, content) {
     var label = [];
