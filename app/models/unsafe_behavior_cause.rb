@@ -19,6 +19,6 @@ class UnsafeBehaviorCause
   end
 
   def color
-    "#BBA5D3"
+    "#EAA1B9"
   end
 end

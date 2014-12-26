@@ -9,6 +9,6 @@ class UnspecifiedCause
   end
 
   def color
-    "#4B498C"
+    "#333F3F"
   end
 end
