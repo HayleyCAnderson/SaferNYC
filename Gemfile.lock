@@ -62,6 +62,7 @@ GEM
     mime-types (2.4.3)
     minitest (5.4.2)
     multi_json (1.10.1)
+    newrelic_rpm (3.9.4.245)
     pg (0.17.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -138,6 +139,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mapbox-rails
+  newrelic_rpm
   pg
   pry
   rails (= 4.1.6)
