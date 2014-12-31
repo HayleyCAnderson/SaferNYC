@@ -10,6 +10,7 @@ gem 'google-webfonts'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'mapbox-rails'
+gem 'newrelic_rpm'
 gem 'pg'
 gem 'rails_12factor', group: :production
 gem 'sass-rails', '~> 4.0.3'
