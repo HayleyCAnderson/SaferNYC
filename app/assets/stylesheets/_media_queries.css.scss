@@ -1,0 +1,82 @@
+@media handheld, screen and (max-width: 65em) {
+  #header {
+    font-size: 90%;
+  }
+
+  .about {
+    font-size: 90%;
+  }
+
+  .map-legend {
+    font-size: 90%;
+  }
+}
+
+@media handheld, screen and (max-width: 55em) {
+  #header {
+    display: none;
+  }
+
+  .about-nav {
+    bottom: 5em;
+    height: 1.25em;
+    left: .5em;
+
+    a {
+      display: block;
+      margin: 0;
+      margin-bottom: .5em;
+    }
+  }
+
+  .about {
+    bottom: 8em;
+    left: 0;
+    padding: 3px;
+    width: 100%;
+  }
+
+  .map-legend {
+    h2 {
+      line-height: 110%;
+      max-width: 11em;
+    }
+
+    h3 {
+      margin-top: -5px;
+    }
+
+    p {
+      margin: -5px 0;
+    }
+
+    ul {
+      margin-bottom: -5px;
+      margin-top: 5px;
+
+      li {
+        margin-top: -5px;
+      }
+    }
+  }
+}
+
+@media handheld, screen and (max-width: 25em) {
+  .about-nav {
+    bottom: 4em;
+    height: 1em;
+
+    a {
+      font-size: 80%;
+    }
+  }
+
+  .about {
+    font-size: 70%;
+  }
+
+  .map-legend {
+    font-size: 80%;
+    max-width: 15em;
+  }
+}
