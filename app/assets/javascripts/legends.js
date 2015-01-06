@@ -1,11 +1,25 @@
 function mainLegend(dataSet, startDate) {
-  var dates = $("#dates"),
-  dataCount = "<h3>Total shown: " + dataSet.length + "</h3>",
+  var description = [],
   dateInformation = [];
+
+  var dates = $("#dates"),
+  startDate = dates.data(startDate),
+  mostRecentDate = dates.data("most-recent"),
+  differenceInMonths = calculateMonths(startDate, mostRecentDate);
+
+  description.push("<h2>Now showing ");
+  description.push(differenceInMonths + " ");
+  description.push("month".pluralize(differenceInMonths));
+  description.push(" of motor vehicle collisions ");
+  description.push("involving pedestrians and cyclists.</h2>");
+
   dateInformation.push("<h3>These collisions occurred:</h3><p>");
-  dateInformation.push(dates.data(startDate));
-  dateInformation.push(" -</p><p>" + dates.data("most-recent"));
-  return dateInformation.join("") + dataCount;
+  dateInformation.push(startDate);
+  dateInformation.push(" -</p><p>" + mostRecentDate);
+
+  var dataCount = "<h3>Total shown: " + dataSet.length + "</h3>";
+
+  return description.join("") + dateInformation.join("") + dataCount;
 };
 
 function modeLegend() {
@@ -17,9 +31,11 @@ function modeLegend() {
     "Cyclist Fatality"
   ],
   colors = {};
+
   colors["Pedestrian"] = "#AA2C3F";
   colors["Cyclist"] = "#293659";
   colors["Pedestrian/Cyclist"] = "#5A004C";
+
   var victimType,
   casualtyType,
   hasPedestrianAndCyclistCasualty = false;
@@ -57,6 +73,7 @@ function modeLegend() {
 function causeLegend() {
   var labels = [],
   options = {};
+
   options["Environmental/Medical/Mechanical"] = "#BFD13C";
   options["Road Conditions"] = "#F9C433";
   options["Unsafe Behavior"] = "#EAA1B9";

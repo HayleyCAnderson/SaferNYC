@@ -1,9 +1,9 @@
 class RoadConditionCause
   CAUSES = [
-    "Pavement Defective",
-    "Traffic Control Device Improper/Non-Working",
+    "Obstruction/Debris",
     "Other Lighting Defects",
-    "Obstruction/Debris"
+    "Pavement Defective",
+    "Traffic Control Device Improper/Non-Working"
   ]
 
   def contains?(cause)

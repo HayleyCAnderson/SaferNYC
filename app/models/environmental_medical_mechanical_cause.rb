@@ -1,15 +1,16 @@
 class EnvironmentalMedicalMechanicalCause
   CAUSES = [
+    "Accelerator Defective",
+    "Brakes Defective",
     "Glare",
-    "Pavement Slippery",
-    "View Obstructed/Limited",
+    "Illness",
     "Lost Consciousness",
+    "Oversized Vehicle",
+    "Pavement Slippery",
     "Physical Disability",
     "Prescription Medication",
-    "Illness",
     "Steering Failure",
-    "Brakes Defective",
-    "Oversized Vehicle"
+    "View Obstructed/Limited"
   ]
 
   def contains?(cause)

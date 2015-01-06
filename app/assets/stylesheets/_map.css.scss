@@ -27,6 +27,15 @@
   border-radius: 4px;
   font-size: 1em;
 
+  h2 {
+    font-size: 95%;
+    font-weight: $bold;
+    line-height: 150%;
+    margin: 0;
+    margin-bottom: 5px;
+    max-width: 16em;
+  }
+
   h3 {
     font-size: 90%;
     font-weight: $normal;

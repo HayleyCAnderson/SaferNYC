@@ -22,19 +22,19 @@ $(function() {
     modeMarkers.addTo(map);
     map.legendControl.addLegend(mainLegend(modeDataSet, "marker-start"));
     map.legendControl.addLegend(modeLegend());
-  }
+  };
 
   function drawCauseMarkers() {
     causeMarkers.addTo(map);
     map.legendControl.addLegend(mainLegend(causeDataSet, "marker-start"));
     map.legendControl.addLegend(causeLegend());
-  }
+  };
 
   function buildHeatMap() {
     heatmap.eachLayer(function(l) {
       heat.addLatLng(l.getLatLng());
     });
-  }
+  };
 
   function moveInfoControl() {
     $(".mapbox-control-info").insertBefore(".map-legends");
@@ -45,13 +45,13 @@ $(function() {
     map.legendControl.removeLegend(mainLegend(modeDataSet, "marker-start"));
     map.legendControl.removeLegend(modeLegend());
     map.legendControl.removeLegend(causeLegend());
-  }
+  };
 
   function removeLayers() {
     map.removeLayer(modeMarkers);
     map.removeLayer(causeMarkers);
     map.removeLayer(heat);
-  }
+  };
 
   drawModeMarkers();
   buildHeatMap();

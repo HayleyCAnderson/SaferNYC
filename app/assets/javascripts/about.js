@@ -13,9 +13,9 @@ $(document).on("click","#about-project-nav",function(e){
 function toggleLinks(clicked,notClicked) {
   $(notClicked).removeClass("active");
   $(clicked).toggleClass("active");
-}
+};
 
 function toggleAboutSections(clicked,notClicked) {
   $(notClicked).removeClass("about-active");
   $(clicked).toggleClass("about-active");
-}
+};

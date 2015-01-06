@@ -4,10 +4,31 @@ body {
   padding: 0;
 }
 
-h1 {
+#header {
+  background: rgba(255,255,255,.9);
+  border: 1px solid darken($grey, 20%);
+  border-radius: 4px;
+  color: $dark-grey;
+  left: 50px;
+  margin: 0;
+  max-width: 28%;
+  padding: 10px;
   position: absolute;
-  top: -9999px;
-  left: -9999px;
+  top: 10px;
+  z-index: 1;
+
+  h1 {
+    font-size: 1.4em;
+    font-weight: $bold;
+    margin: 0;
+    margin-bottom: 5px;
+  }
+
+  h2 {
+    font-size: 1.1em;
+    font-weight: $narrow;
+    margin: 0;
+  }
 }
 
 .menu {

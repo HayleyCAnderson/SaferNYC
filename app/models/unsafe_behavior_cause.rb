@@ -1,17 +1,17 @@
 class UnsafeBehaviorCause
   CAUSES = [
-    "Following Too Closely",
-    "Unsafe Speed",
     "Backing Unsafely",
+    "Driver Inattention/Distraction",
+    "Driver Inexperience",
     "Failure to Keep Right",
+    "Fatigued/Drowsy",
+    "Fell Asleep",
+    "Following Too Closely",
     "Other Electronic Device",
     "Outside Car Distraction",
-    "Driver Inattention/Distraction",
     "Passenger Distraction",
-    "Driver Inexperience",
     "Reaction to Other Uninvolved Vehicle",
-    "Fatigued/Drowsy",
-    "Fell Asleep"
+    "Unsafe Speed"
   ]
 
   def contains?(cause)
