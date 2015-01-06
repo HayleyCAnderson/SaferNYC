@@ -63,8 +63,9 @@
 
 @media handheld, screen and (max-width: 25em) {
   .about-nav {
-    bottom: 4em;
+    bottom: 4.25em;
     height: 1em;
+    left: 0;
 
     a {
       font-size: 80%;
@@ -73,10 +74,49 @@
 
   .about {
     font-size: 70%;
+
+    h2 {
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      margin-bottom: 5px;
+    }
+
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .popup {
+    font-size: 70%;
+
+    p:first-of-type {
+      margin-bottom: -10px;
+      margin-top: -5px;
+    }
+
+    p:last-of-type {
+      margin-bottom: -5px;
+      margin-top: -10px;
+    }
   }
 
   .map-legend {
-    font-size: 80%;
-    max-width: 15em;
+    font-size: 60%;
+    max-width: 21em;
+
+    h2 {
+      max-width: 21em;
+    }
+
+    h3 {
+      margin-top: -10px;
+    }
+
+    p {
+      margin: -10px 0;
+    }
   }
 }
