@@ -3,23 +3,9 @@ class GeojsonBuilder
     @incidents = incidents
   end
 
-  def to_mode_json
+  def build_json(marker_type)
     @incidents.map do |incident|
-      marker = ModeMarker.new(incident).build
-      incident_as_json(incident, marker)
-    end.to_json
-  end
-
-  def to_cause_json
-    @incidents.map do |incident|
-      marker = CauseMarker.new(incident).build
-      incident_as_json(incident, marker)
-    end.to_json
-  end
-
-  def to_heatmap_json
-    @incidents.map do |incident|
-      marker = {}
+      marker = marker_type.new(incident).build
       incident_as_json(incident, marker)
     end.to_json
   end

@@ -5,15 +5,15 @@ class HomePresenter
   end
 
   def mode_data
-    GeojsonBuilder.new(@marker_incidents).to_mode_json
+    GeojsonBuilder.new(@marker_incidents).build_json(ModeMarker)
   end
 
   def cause_data
-    GeojsonBuilder.new(@marker_incidents).to_cause_json
+    GeojsonBuilder.new(@marker_incidents).build_json(CauseMarker)
   end
 
   def heatmap_data
-    GeojsonBuilder.new(@heatmap_incidents).to_heatmap_json
+    GeojsonBuilder.new(@heatmap_incidents).build_json(NullMarker)
   end
 
   def most_recent_date

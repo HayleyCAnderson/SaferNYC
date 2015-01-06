@@ -1,12 +1,12 @@
 class ImproperBehaviorCause
   CAUSES = [
     "Aggressive Driving/Road Rage",
-    "Traffic Control Disregarded",
-    "Drugs (Illegal)",
     "Alcohol Involvement",
-    "Turning Improperly",
+    "Drugs (Illegal)",
+    "Failure to Yield Right-of-Way",
     "Passing or Lane Usage Improper",
-    "Failure to Yield Right-of-Way"
+    "Traffic Control Disregarded",
+    "Turning Improperly"
   ]
 
   def contains?(cause)
