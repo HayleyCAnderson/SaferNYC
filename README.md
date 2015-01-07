@@ -55,16 +55,14 @@ dataset on the [NYC Open Data](https://nycopendata.socrata.com)
 website. It is gathered through the
 [Socrata Open Data API](http://dev.socrata.com) and associated gem.
 
-Approximately one third of collisions involving
-pedestrians and cyclists already have latitude and
-longitude included in the dataset, while the other two
-thirds are geocoded through the
-[Google Geocoding API](https://developers.google.com/maps/documentation/geocoding/?csw=1)
-by way of the [Geocoder](http://www.rubygeocoder.com) gem.
-A small number of incidents are missing cross streets or
-zip codes, or otherwise cannot be geocoded. The
-locations in the dataset typically show the nearest
-intersection rather than exact location.
+Approximately one third of these collisions have latitude
+and longitude included in the dataset, while the rest are
+geocoded using the [Geocoder](http://www.rubygeocoder.com)
+gem and [Google Geocoding API](https://developers.google.com/maps/documentation/geocoding/?csw=1).
+A small number of incidents are missing
+cross streets or zip codes, or otherwise cannot be geocoded.
+The locations given represent the nearest intersection
+rather than exact location.
 
 While cause and vehicle type are shown in the map when
 available, it is unclear how these designations are
@@ -86,5 +84,4 @@ to the NYPD will obviously not be included. In addition, there
 have been accounts of reported incidents not simply being
 documented inaccurately, but
 [missing entirely](http://www.wnyc.org/story/nypdtrafficdeaths/)
-from this dataset. This should be taken into consideration when
-viewing the data shown on this map.*
+from this dataset.*
