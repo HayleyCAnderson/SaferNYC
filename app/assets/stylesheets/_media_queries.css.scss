@@ -108,6 +108,7 @@
     max-width: 21em;
 
     h2 {
+      margin-top: -5px;
       max-width: 21em;
     }
 
@@ -116,7 +117,15 @@
     }
 
     p {
-      margin: -10px 0;
+      margin: -15px 0;
+    }
+
+    ul {
+      margin-bottom: -12px;
+
+      li {
+        margin-top: -8px;
+      }
     }
   }
 }
