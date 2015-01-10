@@ -56,7 +56,7 @@ class DataCollector
 
   def date_of_last_saved_incident
     if Incident.exists?
-      Incident.order(date: :desc).first.date
+      Incident.most_recent_date
     else
       current_date = Date.strptime(Time.current.to_s)
       current_date.prev_month(6).strftime("%FT%T")

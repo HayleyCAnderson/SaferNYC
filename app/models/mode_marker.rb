@@ -5,7 +5,7 @@ class ModeMarker
 
   def build
     {
-      "title" => Popup.new(@incident).add_content,
+      "description" => Popup.new(@incident).add_content,
       "marker-size" => "small",
       "marker-color" => color,
       "marker-symbol" => symbol

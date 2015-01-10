@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209220942) do
+ActiveRecord::Schema.define(version: 20150111180944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,5 +34,7 @@ ActiveRecord::Schema.define(version: 20141209220942) do
     t.string   "cause"
     t.string   "vehicle_type"
   end
+
+  add_index "incidents", ["date"], name: "index_incidents_on_date", using: :btree
 
 end

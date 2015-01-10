@@ -1,10 +1,6 @@
 class GeojsonBuilder
-  def initialize(incidents)
-    @incidents = incidents
-  end
-
-  def build_json(marker_type)
-    @incidents.map do |incident|
+  def build_json(incidents, marker_type)
+    incidents.map do |incident|
       marker = marker_type.new(incident).build
       incident_as_json(incident, marker)
     end.to_json
