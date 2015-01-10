@@ -6,13 +6,33 @@ class Incident < ActiveRecord::Base
     "#{on_street_name} and #{cross_street_name}, #{borough}, NY #{zip_code}"
   end
 
-  def self.good_data_in_time_range(number_of_months)
-    where(date: between_dates(number_of_months)).where.not(latitude: 0.0)
+  def self.good_data_in_date_range(last_date, number_of_months)
+    in_date_range(last_date, number_of_months).has_location.includes_data
   end
 
-  def self.between_dates(number_of_months)
-    most_recent_date = Date.strptime(Incident.order(date: :desc).first.date)
-    start_date = most_recent_date.prev_month(number_of_months)
-    start_date.strftime("%FT%T")..most_recent_date.strftime("%FT%T")
+  def self.in_date_range(last_date, number_of_months)
+    where(date: between_dates(last_date, number_of_months))
+  end
+
+  def self.has_location
+    where.not(latitude: 0.0)
+  end
+
+  def self.includes_data
+    select("#{incident_information}, #{incident_casualties}")
+  end
+
+  def self.between_dates(last_date, number_of_months)
+    last_date = Date.parse(last_date)
+    start_date = last_date.prev_month(number_of_months)
+    start_date.strftime("%FT%T")..last_date.strftime("%FT%T")
+  end
+
+  def self.incident_information
+    "latitude, longitude, date, cause, vehicle_type"
+  end
+
+  def self.incident_casualties
+    "pedestrians_injured, cyclists_injured, pedestrians_killed, cyclists_killed"
   end
 end

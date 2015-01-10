@@ -1,7 +1,8 @@
 class HomePresenter
   def initialize
-    @marker_incidents = Incident.good_data_in_time_range(1)
-    @heatmap_incidents = Incident.good_data_in_time_range(6)
+    last_date = most_recent_date
+    @marker_incidents = Incident.good_data_in_date_range(last_date, 1)
+    @heatmap_incidents = Incident.good_data_in_date_range(last_date, 6)
   end
 
   def mode_data
@@ -17,7 +18,7 @@ class HomePresenter
   end
 
   def most_recent_date
-    format(@marker_incidents.order(date: :desc).first.date)
+    format(Incident.order(date: :desc).first.date)
   end
 
   def marker_start_date
