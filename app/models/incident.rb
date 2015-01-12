@@ -6,8 +6,8 @@ class Incident < ActiveRecord::Base
     "#{on_street_name} and #{cross_street_name}, #{borough}, NY #{zip_code}"
   end
 
-  def self.good_data_in_date_range(last_date, number_of_months)
-    in_date_range(last_date, number_of_months).has_location.includes_data
+  def self.good_data_in_date_range(number_of_months)
+    where(date: between_dates(number_of_months)).has_location.includes_data
   end
 
   def self.most_recent_date
@@ -18,8 +18,10 @@ class Incident < ActiveRecord::Base
     uniq.order(date: :asc).limit(1).pluck(:date).pop
   end
 
-  def self.in_date_range(last_date, number_of_months)
-    where(date: between_dates(last_date, number_of_months))
+  def self.between_dates(number_of_months)
+    most_recent_date = Date.parse(self.most_recent_date)
+    start_date = most_recent_date.prev_month(number_of_months)
+    start_date.strftime("%FT%T")..most_recent_date.strftime("%FT%T")
   end
 
   def self.has_location
@@ -38,11 +40,5 @@ class Incident < ActiveRecord::Base
       :pedestrians_killed,
       :cyclists_killed
     ])
-  end
-
-  def self.between_dates(last_date, number_of_months)
-    last_date = Date.parse(last_date)
-    start_date = last_date.prev_month(number_of_months)
-    start_date.strftime("%FT%T")..last_date.strftime("%FT%T")
   end
 end
