@@ -30,15 +30,15 @@ class Incident < ActiveRecord::Base
 
   def self.includes_data
     select([
+      :cause,
+      :cyclists_injured,
+      :cyclists_killed,
+      :date,
       :latitude,
       :longitude,
-      :date,
-      :cause,
-      :vehicle_type,
       :pedestrians_injured,
-      :cyclists_injured,
       :pedestrians_killed,
-      :cyclists_killed
+      :vehicle_type
     ])
   end
 end
