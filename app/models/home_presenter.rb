@@ -6,27 +6,27 @@ class HomePresenter
   end
 
   def mode_data
-    GeojsonBuilder.new(@marker_incidents).build_json(ModeMarker)
+    GeojsonBuilder.new.build_json(@marker_incidents, ModeMarker)
   end
 
   def cause_data
-    GeojsonBuilder.new(@marker_incidents).build_json(CauseMarker)
+    GeojsonBuilder.new.build_json(@marker_incidents, CauseMarker)
   end
 
   def heatmap_data
-    GeojsonBuilder.new(@heatmap_incidents).build_json(NullMarker)
+    GeojsonBuilder.new.build_json(@heatmap_incidents, NullMarker)
   end
 
   def most_recent_date
-    format(Incident.order(date: :desc).first.date)
+    format(Incident.most_recent_date)
   end
 
   def marker_start_date
-    format(@marker_incidents.order(date: :desc).last.date)
+    format(@marker_incidents.start_date)
   end
 
   def heatmap_start_date
-    format(@heatmap_incidents.order(date: :desc).last.date)
+    format(@heatmap_incidents.start_date)
   end
 
   private

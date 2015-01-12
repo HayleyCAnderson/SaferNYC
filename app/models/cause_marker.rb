@@ -5,7 +5,7 @@ class CauseMarker
 
   def build
     {
-      "title" => Popup.new(@incident).add_content,
+      "description" => Popup.new(@incident).add_content,
       "marker-size" => "small",
       "marker-color" => CauseColor.build(@incident),
       "marker-symbol" => symbol
