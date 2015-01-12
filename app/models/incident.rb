@@ -18,8 +18,6 @@ class Incident < ActiveRecord::Base
     uniq.order(date: :asc).limit(1).pluck(:date).pop
   end
 
-  private
-
   def self.in_date_range(last_date, number_of_months)
     where(date: between_dates(last_date, number_of_months))
   end
