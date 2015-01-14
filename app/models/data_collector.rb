@@ -58,8 +58,8 @@ class DataCollector
     if Incident.exists?
       Incident.most_recent_date
     else
-      current_date = Date.strptime(Time.current.to_s)
-      current_date.prev_month(6).strftime("%FT%T")
+      current_date = IncidentDate.parse(Time.current.to_s)
+      current_date.prev_month(6).api_format
     end
   end
 

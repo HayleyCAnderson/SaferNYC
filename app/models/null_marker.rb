@@ -1,8 +1,5 @@
 class NullMarker
-  def initialize(_incident)
-  end
-
-  def build
+  def build(_incident)
     {}
   end
 end

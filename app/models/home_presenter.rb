@@ -17,20 +17,14 @@ class HomePresenter
   end
 
   def most_recent_date
-    format(Incident.most_recent_date)
+    IncidentDate.parse(Incident.most_recent_date).nice_format
   end
 
   def marker_start_date
-    format(@marker_incidents.start_date)
+    IncidentDate.parse(@marker_incidents.start_date).nice_format
   end
 
   def heatmap_start_date
-    format(@heatmap_incidents.start_date)
-  end
-
-  private
-
-  def format(raw_date)
-    Date.strptime(raw_date).strftime("%a, %b. %d, %Y")
+    IncidentDate.parse(@heatmap_incidents.start_date).nice_format
   end
 end
