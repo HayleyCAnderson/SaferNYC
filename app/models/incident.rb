@@ -19,9 +19,9 @@ class Incident < ActiveRecord::Base
   end
 
   def self.between_dates(number_of_months)
-    most_recent_date = Date.parse(self.most_recent_date)
+    most_recent_date = IncidentDate.parse(self.most_recent_date)
     start_date = most_recent_date.prev_month(number_of_months)
-    start_date.strftime("%FT%T")..most_recent_date.strftime("%FT%T")
+    start_date.api_format..most_recent_date.api_format
   end
 
   def self.has_location
