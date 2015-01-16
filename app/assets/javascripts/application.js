@@ -4,18 +4,18 @@
 //= require mapbox.js
 
 String.prototype.pluralize = function(count) {
-  if (count == 1) {
+  if (count === 1) {
     return this;
   } else {
     return this + "s";
-  };
+  }
 };
 
 function calculateMonths(fromDate, toDate) {
-  var fromDate = new Date(fromDate),
-  toDate = new Date(toDate),
-  timeDifference = toDate.getTime() - fromDate.getTime(),
+  var fromDateObject = new Date(fromDate),
+  toDateObject = new Date(toDate),
+  timeDifference = toDateObject.getTime() - fromDateObject.getTime(),
   millisecondsPerMonth = 1000*60*60*24*30;
 
   return Math.round(timeDifference/millisecondsPerMonth);
-};
+}

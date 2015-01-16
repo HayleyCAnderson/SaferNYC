@@ -1,9 +1,9 @@
-function mainLegend(dataSet, startDate) {
+function mainLegend(dataSet, startDateType) {
   var description = [],
   dateInformation = [];
 
   var dates = $("#dates"),
-  startDate = dates.data(startDate),
+  startDate = dates.data(startDateType),
   mostRecentDate = dates.data("most-recent"),
   differenceInMonths = calculateMonths(startDate, mostRecentDate);
 
@@ -20,7 +20,7 @@ function mainLegend(dataSet, startDate) {
   var dataCount = "<h3>Total shown: " + dataSet.length + "</h3>";
 
   return description.join("") + dateInformation.join("") + dataCount;
-};
+}
 
 function modeLegend() {
   var labels = [],
@@ -41,16 +41,16 @@ function modeLegend() {
   hasPedestrianAndCyclistCasualty = false;
 
   $(modeDataSet).each(function(index, object) {
-    if (object["properties"]["marker-color"] == "#5A004C") {
+    if (object.properties["marker-color"] === "#5A004C") {
       hasPedestrianAndCyclistCasualty = true;
       return false;
-    };
+    }
   });
 
-  if (hasPedestrianAndCyclistCasualty == true) {
+  if (hasPedestrianAndCyclistCasualty === true) {
     options.push("Pedestrian/Cyclist Injury");
     options.push("Pedestrian/Cyclist Fatality");
-  };
+  }
 
   $(options).each(function (index, content) {
     var label = [],
@@ -59,16 +59,16 @@ function modeLegend() {
     casualtyType = optionTypes[1];
 
     label.push("<li><span class='swatch' style='background:" + colors[victimType] + "'>");
-    if (casualtyType=="Fatality") {
-      label.push("<span class='symbol'></span>")
-    };
+    if (casualtyType === "Fatality") {
+      label.push("<span class='symbol'></span>");
+    }
     label.push("</span>" + content + "</li>");
 
     labels.push(label.join(""));
   });
 
   return "<h3>Map Key:</h3><ul>" + labels.join("") + "</ul>";
-};
+}
 
 function causeLegend() {
   var labels = [],
@@ -91,4 +91,4 @@ function causeLegend() {
   });
 
   return "<h3>Map Key:</h3><ul>" + labels.join("") + "</ul>";
-};
+}
