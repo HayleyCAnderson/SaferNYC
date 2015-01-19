@@ -4,7 +4,6 @@ ruby "2.1.2"
 gem 'rails', '4.1.6'
 
 gem 'coffee-rails', '~> 4.0.0'
-gem 'derailed_benchmarks', group: :development
 gem 'figaro'
 gem 'geocoder'
 gem 'google-webfonts'
@@ -13,10 +12,17 @@ gem 'jquery-rails'
 gem 'mapbox-rails'
 gem 'newrelic_rpm'
 gem 'pg'
-gem 'pry', group: :development
-gem 'rails_12factor', group: :production
 gem 'sass-rails', '~> 4.0.3'
-gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'soda-ruby', require: 'soda'
 gem 'sprockets-rails', require: 'sprockets/railtie'
 gem 'uglifier', '>= 1.3.0'
+
+group :production do
+  gem 'rails_12factor'
+  gem 'unicorn'
+end
+
+group :development do
+  gem 'derailed_benchmarks'
+  gem 'pry'
+end
