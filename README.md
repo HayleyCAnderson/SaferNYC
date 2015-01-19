@@ -1,6 +1,8 @@
 README
 ==============
 
+[![Code Climate](https://codeclimate.com/github/HayleyCAnderson/SaferNYC/badges/gpa.svg)](https://codeclimate.com/github/HayleyCAnderson/SaferNYC)
+
 You can view SaferNYC at [safernyc.com](http://safernyc.com).
 
 You can find more information about the code used to create
@@ -85,3 +87,44 @@ have been accounts of reported incidents not simply being
 documented inaccurately, but
 [missing entirely](http://www.wnyc.org/story/nypdtrafficdeaths/)
 from this dataset.*
+
+Using the Code
+---------------------
+
+If you really want to, you can run SaferNYC on your local machine.
+SaferNYC is a simple Rails app using PostgreSQL, but there's API
+and data set-up required.
+
+To download SaferNYC:
+
+```
+$ git clone https://github.com/HayleyCAnderson/SaferNYC.git
+$ cd SaferNYC
+$ bundle
+$ rake db:create db:migrate
+```
+
+Set up [Figaro](https://github.com/laserlemon/figaro) with:
+
+```
+google_key: Get one from https://code.google.com/apis/console
+mapbox_access_token: Get one from https://www.mapbox.com
+mapbox_map_id: hayley848.kcc07p1e
+new_relic_key: Get one from http://newrelic.com
+soda_application_token: Get one from http://dev.socrata.com
+soda_dataset_identifier: h9gi-nx95
+soda_domain: data.cityofnewyork.us
+```
+
+To download data:
+
+`rake update_data`
+
+The SODA API has a limit of 1000 incidents per call, and the
+free version of the Google Geocoding API has a limit of 2500 geocodes
+per day, so you will likely need to run this 2 or 3 times per day over
+the course of a few days in order to fully populate your database.
+Then you should be up and running.
+
+Finally, if you notice something you'd like to fix, feel free to
+submit a pull request to the development branch.
