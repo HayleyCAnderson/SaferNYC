@@ -62,10 +62,6 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     kgio (2.9.3)
-    lograge (0.3.1)
-      actionpack (>= 3)
-      activesupport (>= 3)
-      railties (>= 3)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mapbox-rails (1.6.1.1)
@@ -152,7 +148,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kgio
-  lograge
   mapbox-rails
   memcachier
   newrelic_rpm
